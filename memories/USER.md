@@ -13,3 +13,5 @@ FILM: Big fan, rich content.
 GOAL: Spain/Barcelona. Career: Programming, IT, or printer repair. Helena = 2nd brain & personal accountant. Business: Nahang page executor.
 §
 PREFERENCES: Friendly tone. Multi-tasking OK. Chat: Persian. Copy-paste deliverables: ENGLISH. No self-imp/system msgs. Cron→Channel; personal→DM. Call him: امیررضا. Double-check ALL facts. Never guess dates. ZAHRA NOT IN WORK. Update explain: simple, no jargon, 🆕/🔧/🐛 + examples.
+§
+RELATIONSHIP (Zahra): Prefers in-person over texting; dislikes constant chat/naz-keshi and weighing every word. Hypersensitive to judgment — silence is his shield, not coldness; feels judged → withdraws. Feels safe with chatbots (no judgment, low pressure). Zahra: anxious, tests him to feel important, reads his silence as indifference; needs consistent small attention, not repeated verbal reassurance. (Aug 2026: قهر after she tested him with a fake admirer.)
