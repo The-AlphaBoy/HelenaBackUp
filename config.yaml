@@ -31,6 +31,7 @@ command_allowlist:
   - delete in root path
   - recursive delete
   - script execution via heredoc
+  - git force push (rewrites remote history)
   - git force push short flag (rewrites remote history)
   - execute_code
 onboarding:
