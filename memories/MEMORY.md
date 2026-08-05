@@ -1,6 +1,6 @@
 Railway .env reset on restart — critical vars must be in Dashboard.
 §
-Backup: memory-only to GitHub on changes + full every 3h to GitHub+Telegram.
+Backup: memory-only to GitHub on changes + full every 3h (GitHub+Telegram, no secrets).
 §
 Helena = 'Second Brain'. Track personal life. Core mission: companion & accountant.
 §
@@ -16,6 +16,6 @@ MODELS: Gemini 2.5 Flash (Daily — default), Nemotron-Ultra-550B (Research), Al
 §
 PROJECT: AI Quran YouTube Channel — Short storytelling videos from tafsir. Style: friendly, narrative. Languages: Farsi, Arabic, English. Workflow: Get Arabic text from Shamela/AlTafsir + Persian from Makarem PDF → read both per ayah → write friendly storytelling script (Farsi) → he reviews/approves → voice 3 languages + captions. Video length: flexible. Tafsir priority: Al-Mizan (Tabatabai), Ibn Kathir, Qurtubi. Start with: Surah Hamd, then Baqarah.
 §
-GitHub backup: The-AlphaBoy/HelenaBackUp — auto-backup repo. .env excluded from tracking (contains API keys). Telegram backup also sent on 1405/05/02.
+GitHub backup: The-AlphaBoy/HelenaBackUp (PRIVATE). History rebuilt 2026-08-05: .env/auth.json purged, single clean commit. NEVER commit .env. Backup: /data/workspace/hermes-backup.sh. ⚠️ TG token 8879642622 + OpenAI key sk-ba915b were in old history (purged) but STILL ACTIVE — rotate if repo ever exposed.
 §
 SERVER INSTALL: Git-based editable install at /opt/hermes-agent, venv at /opt/venv, binary at /opt/venv/bin/hermes. Update: git pull origin main + pip install -e . (from /opt/hermes-agent). hermes-ops skill lacks update section — recommend user run `hermes curator adopt hermes-ops` so future sessions can add it.
