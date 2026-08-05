@@ -1,0 +1,45 @@
+model:
+  default: nvidia/nvidia/nemotron-3-ultra-550b-a55b
+  provider: nvidia
+terminal:
+  backend: local
+  cwd: /data/workspace
+  timeout: 180
+compression:
+  enabled: true
+  threshold: 0.5
+auxiliary:
+  background_review:
+    notification_mode: false
+display:
+  language: fa
+tts:
+  edge:
+    voice: fa-IR-DilaraNeural
+stt:
+  enabled: true
+  echo_transcripts: false
+  provider: local_command
+  local:
+    model: base
+timezone: Asia/Tehran
+approvals:
+  destructive_slash_confirm: false
+command_allowlist:
+  - delete in root path
+  - script execution via -e/-c flag
+  - execute_code
+  - script execution via heredoc
+onboarding:
+  seen:
+    busy_input_prompt: true
+    profile_build_offered: true
+_config_version: 33
+platforms:
+  telegram:
+    enabled: true
+    home_channel:
+      chat_id: '611447021'
+      name: AmirReza
+      platform: telegram
+      user_id: '611447021'
