@@ -144,10 +144,10 @@
       "prompt": "\u0627\u0645\u06cc\u0631\u0631\u0636\u0627! \u0627\u0645\u0631\u0648\u0632 \u06f5 \u062a\u06cc\u0631 \u0647\u0633\u062a! \u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc\u062a \u0628\u0627 \u0632\u0647\u0631\u0627\u0633\u062a! \u0645\u0628\u0627\u0631\u06a9\u0647 \u0639\u0632\u06cc\u0632\u0645! \ud83c\udf89\ud83d\udc95 \u0628\u0647 \u0632\u0647\u0631\u0627 \u0647\u0645 \u062a\u0628\u0631\u06cc\u06a9 \u0628\u06af\u0648!",
       "skills": [],
       "skill": null,
-      "model": null,
-      "provider": null,
-      "provider_snapshot": "nvidia",
-      "model_snapshot": "nvidia/nemotron-3-ultra-550b-a55b",
+      "model": "gemini-3.1-flash-lite",
+      "provider": "gemini",
+      "provider_snapshot": "gemini",
+      "model_snapshot": "gemini-3.1-flash-lite",
       "base_url": null,
       "script": null,
       "no_agent": false,
@@ -160,16 +160,16 @@
       "schedule_display": "0 9 5 7 *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-31T01:16:27.149640+00:00",
-      "next_run_at": "2027-07-05T09:00:00+00:00",
-      "last_run_at": null,
-      "last_status": null,
+      "next_run_at": "2027-07-05T09:00:00+03:30",
+      "last_run_at": "2026-08-06T01:06:34.604819+03:30",
+      "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
@@ -181,8 +181,9 @@
         "user_id": "611447021"
       },
       "enabled_toolsets": null,
-      "workdir": null
+      "workdir": null,
+      "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-06T00:44:05.067266+03:30"
+  "updated_at": "2026-08-06T01:06:34.605561+03:30"
 }
