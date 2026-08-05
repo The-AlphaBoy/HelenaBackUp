@@ -11,7 +11,7 @@ import tempfile
 import urllib.request
 
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "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")
-FFMPEG_PATH = "/data/bin/ffmpeg"
+FFMPEG_PATH = "/usr/bin/ffmpeg"
 VISION_MODEL = "meta/llama-3.2-90b-vision-instruct"
 
 def get_video_duration(video_path):
