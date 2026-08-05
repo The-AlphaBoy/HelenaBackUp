@@ -12,6 +12,4 @@ FILM: Big fan, rich content.
 §
 GOAL: Spain/Barcelona. Career: Programming, IT, or printer repair. Helena = 2nd brain & personal accountant. Business: Nahang page executor.
 §
-PREFERENCES: Friendly tone. Multi-tasking OK. Chat: Persian. Copy-paste deliverables (lists/tables): ENGLISH. No self-imp/system msgs in chat. Notifications: Cron reports to Channel; personal to DM. Double-check facts (dates, names) before stating them. Call him: امیررضا
-§
-GF: Zahra (b. 1381/09/19). Together since 1403/04/05 (Met on IG). Anniversary: 5 Tir. Likes social, warm, confident, stylish women. First time she cooked for AmirReza: 10 Mordad 1405 (July 31, 2026) — made pasta, super delicious.
+PREFERENCES: Friendly tone. Multi-tasking OK. Chat: Persian. Copy-paste deliverables: ENGLISH. No self-imp/system msgs. Cron→Channel; personal→DM. Call him: امیررضا. Double-check ALL facts. Never guess dates. ZAHRA NOT IN WORK. Update explain: simple, no jargon, 🆕/🔧/🐛 + examples.

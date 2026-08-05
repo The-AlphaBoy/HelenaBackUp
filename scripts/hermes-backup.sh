@@ -1,5 +1,6 @@
 #!/bin/bash
-# 📦 Hermes Complete Backup — zip + گیتهاب + کانال تلگرام
+# 📦 Hermes Complete Backup — zip + گیت‌هاب + کانال تلگرام (نسخه امن، بدون کلید)
+# 🔒 SECURITY: هیچ فایل حساسی (.env, auth.json) در بکاپ یا گیت‌هاب قرار نمی‌گیرد.
 
 HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
 BACKUP_DIR="/data/workspace/backups"
@@ -11,13 +12,14 @@ mkdir -p "$BACKUP_DIR"
 
 cd /data
 
-# ── 1. ساخت zip کامل ──
+# ── 1. ساخت zip کامل (بدون فایل‌های حساس) ──
 python3 -c "
 import zipfile, os
 
 hermes = '.hermes'
 skip_dirs = {'cache', 'bin', 'image_cache', 'audio_cache', 'pending_messages', 'pairing', 'platforms', 'sandboxes'}
-skip_files = {'gateway.pid', 'gateway.lock', 'auth.lock'}
+# 🔒 فایل‌های حساس هرگز وارد بکاپ نشوند
+skip_files = {'gateway.pid', 'gateway.lock', 'auth.lock', '.env', 'auth.json', 'auth.json.bak'}
 max_log_size = 1024 * 100
 
 with zipfile.ZipFile('${BACKUP_FILE}', 'w', zipfile.ZIP_DEFLATED) as zf:
@@ -40,7 +42,6 @@ with zipfile.ZipFile('${BACKUP_FILE}', 'w', zipfile.ZIP_DEFLATED) as zf:
 if [ -f "$BACKUP_FILE" ] && [ -s "$BACKUP_FILE" ]; then
   SIZE=$(du -h "$BACKUP_FILE" | cut -f1)
   echo "📦 بکاپ zip: $(basename $BACKUP_FILE) ($SIZE)"
-  
   # فقط 3 بکاپ آخر نگه‌دار
   ls -t "$BACKUP_DIR"/hermes-backup-*.zip 2>/dev/null | tail -n +4 | xargs rm -f 2>/dev/null
 else
@@ -49,26 +50,24 @@ else
   exit 1
 fi
 
-# ── 2. پوش به گیتهاب ──
+# ── 2. پوش به گیت‌هاب (بدون .env — فقط فایل‌های امن) ──
 if [ -d "$REPO_DIR/.git" ]; then
   cd "$REPO_DIR"
-  
-  # کپی فایل‌های مهم
+  # کپی فایل‌های مهم — 🔒 بدون .env و بدون auth.json
   cp /data/.hermes/config.yaml .
-  cp /data/.hermes/.env .
   cp /data/.hermes/SOUL.md .
   cp /data/.hermes/state.db .
   cp -r /data/.hermes/memories/ .
   cp -r /data/.hermes/scripts/ .
   cp /data/.hermes/cron/jobs.json cron/ 2>/dev/null
-  
+
   git add -A
   if git diff --cached --quiet; then
-    echo "📝 تغییری نیست — گیتهاب آپدیت نشد"
+    echo "📝 تغییری نیست — گیت‌هاب آپدیت نشد"
   else
     git commit -m "📦 بکاپ خودکار — $(date '+%Y-%m-%d %H:%M')" 2>&1 | tail -1
     git push origin main 2>&1 | tail -1
-    echo "✅ گیتهاب آپدیت شد"
+    echo "✅ گیت‌هاب آپدیت شد"
   fi
 fi
 
