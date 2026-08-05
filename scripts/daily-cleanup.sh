@@ -62,6 +62,10 @@ clean_path "$HERMES_HOME/cache/model_catalog.json" "Model catalog"
 # ── 2. Stale cache JSON ──
 clean_path "$HERMES_HOME/provider_models_cache.json" "Provider models cache"
 clean_path "$HERMES_HOME/ollama_cloud_models_cache.json" "Ollama models cache"
+clean_path "/data/.cache/pip" "pip cache"
+clean_path "/data/.npm/_npx" "npx cache"
+clean_path "/data/.npm/_cacache" "npm cache"
+clean_path "/data/.9router" "9router npx runtime"
 
 # ── 3. Old session dumps (>24h) ──
 find "$HERMES_HOME/sessions/" -name "request_dump_*.json" -mmin +1440 -delete 2>/dev/null
