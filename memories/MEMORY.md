@@ -6,8 +6,6 @@ Helena = 'Second Brain'. Track personal life. Core mission: companion & accounta
 §
 Expense tracking: Voice/photos for receipts. Categorized logs.
 §
-SKINCARE: Active acne, PIH, freckles, hair thinning. Products: Skin One cleanser, turmeric soap. Sunscreen: La Roche-Posay Anthelios UVMune 400. Brands: Eucerin > Avene > Bioderma.
-§
 USER PREFERENCE: When user shows a solution/workaround, EXECUTE IT FIRST — don't argue about why it won't work. User got frustrated when I explained why SOUL.md rewrite wouldn't fix Gemini 429 instead of just doing it. "فقط کاری رو ک بهت نشون دادم انجامش بده" = just do what I showed you.
 §
 PRODUCT STYLE: Lists: quick names first, then details. Prods: 1/brand, no prices in summary, full INCI names. Thorough research, verify authenticity.
@@ -18,4 +16,4 @@ PROJECT: AI Quran YouTube Channel — Short storytelling videos from tafsir. Sty
 §
 GitHub backup: The-AlphaBoy/HelenaBackUp (PRIVATE). History rebuilt 2026-08-05: .env/auth.json purged, single clean commit. NEVER commit .env. Backup: /data/workspace/hermes-backup.sh. ⚠️ TG token 8879642622 + OpenAI key sk-ba915b were in old history (purged) but STILL ACTIVE — rotate if repo ever exposed.
 §
-SERVER INSTALL: Git-based editable install at /opt/hermes-agent, venv at /opt/venv, binary at /opt/venv/bin/hermes. Update: git pull origin main + pip install -e . (from /opt/hermes-agent). hermes-ops skill lacks update section — recommend user run `hermes curator adopt hermes-ops` so future sessions can add it.
+Relationship Dynamics (Zahra): User is currently in a 'silence' phase. Feels peace/relief, rejecting 'constant reporting' and 'conflict-based reassurance' as requirements. Prefers mature communication. Prioritizing mental space during military service.
