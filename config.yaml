@@ -1,5 +1,5 @@
 model:
-  default: groq/gemma-3-27b-it
+  default: groq/qwen3.6-27b
   provider: groq
   reasoning_effort: high
 terminal:
@@ -48,3 +48,11 @@ platforms:
       name: AmirReza
       platform: telegram
       user_id: '611447021'
+fallback_providers:
+  - provider: nvidia
+    model: nvidia/nemotron-3-ultra-550b-a55b
+  - provider: nvidia
+    model: nvidia/nemotron-3-super-120b-a12b
+  - provider: groq
+    model: qwen/qwen3.6-27b
+    base_url: https://api.groq.com/openai/v1
