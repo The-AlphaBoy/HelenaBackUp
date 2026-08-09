@@ -1,6 +1,6 @@
 model:
-  default: gemini-3.1-flash-lite
-  provider: gemini
+  default: groq/gemma-3-27b-it
+  provider: groq
   reasoning_effort: high
 terminal:
   backend: local
