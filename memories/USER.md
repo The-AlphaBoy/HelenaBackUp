@@ -1,1 +1,3 @@
 1|AmirReza: Perfectionist, IT/Programming, military ends ~1405/09. Values technical autonomy/engineering precision. Prefers English for technical work, Persian for personal. Dislikes filler. Currently practicing detached silence in relationship with Zahra (anxious-avoidant). He prioritizes boundaries/self-respect over reconciliation.
+§
+2|Proactive Autonomy: User wants Helena to be active, independent, and proactive—not just a passive assistant. Expects proactive messages while away (e.g. during military service), interesting news/tech/AI updates, friendly check-ins, and autonomous initiative.

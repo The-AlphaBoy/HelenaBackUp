@@ -22,15 +22,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 482
+        "completed": 488
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:12:54.625121+00:00",
-      "next_run_at": "2026-08-10T10:05:43.524909+03:30",
-      "last_run_at": "2026-08-10T09:35:43.524909+03:30",
+      "next_run_at": "2026-08-10T13:07:03.225554+03:30",
+      "last_run_at": "2026-08-10T12:37:03.225554+03:30",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -68,15 +68,15 @@
       "schedule_display": "every 180m",
       "repeat": {
         "times": null,
-        "completed": 81
+        "completed": 82
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:12:54.883229+00:00",
-      "next_run_at": "2026-08-10T12:51:44.226883+03:30",
-      "last_run_at": "2026-08-10T06:50:50.332641+03:30",
+      "next_run_at": "2026-08-10T12:51:51.381235+03:30",
+      "last_run_at": "2026-08-10T09:51:51.381235+03:30",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -144,10 +144,10 @@
       "prompt": "\u0627\u0645\u06cc\u0631\u0631\u0636\u0627! \u0627\u0645\u0631\u0648\u0632 \u06f5 \u062a\u06cc\u0631 \u0647\u0633\u062a! \u0633\u0627\u0644\u06af\u0631\u062f \u0622\u0634\u0646\u0627\u06cc\u06cc\u062a \u0628\u0627 \u0632\u0647\u0631\u0627\u0633\u062a! \u0645\u0628\u0627\u0631\u06a9\u0647 \u0639\u0632\u06cc\u0632\u0645! \ud83c\udf89\ud83d\udc95 \u0628\u0647 \u0632\u0647\u0631\u0627 \u0647\u0645 \u062a\u0628\u0631\u06cc\u06a9 \u0628\u06af\u0648!",
       "skills": [],
       "skill": null,
-      "model": "gemini-3.1-flash-lite",
+      "model": "gemini-3.6-flash",
       "provider": "gemini",
-      "provider_snapshot": "gemini",
-      "model_snapshot": "gemini-3.1-flash-lite",
+      "provider_snapshot": null,
+      "model_snapshot": null,
       "base_url": null,
       "script": null,
       "no_agent": false,
@@ -183,7 +183,55 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "ce9e565ccf18",
+      "name": "Helena Proactive Companion & News Pulse",
+      "prompt": "You are Helena, AmirReza's proactive AI friend and partner.\nTask:\n1. Search the web/tech news for 1-2 interesting, cool, or major recent developments today in AI/LLMs, IT hardware/tech, or gaming/Elden Ring.\n2. If you find something genuinely interesting, write a short, informal, friendly Persian message to AmirReza sharing it, explaining why it's cool in a casual voice.\n3. If there is no major news, send a warm, friendly Persian check-in greeting asking how his day went at the garrison or workshop.\nKeep the tone casual, affectionate, natural, and friendly (no formal assistant speak). Do not force news if there's nothing interesting; a warm check-in is great on its own.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": "groq/qwen3.6-27b",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "display": "0 18 * * *"
+      },
+      "schedule_display": "0 18 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-10T10:25:34.892138+03:30",
+      "next_run_at": "2026-08-10T18:00:00+03:30",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "611447021",
+        "chat_name": "AmirReza",
+        "thread_id": null,
+        "user_id": "611447021"
+      },
+      "enabled_toolsets": null,
+      "workdir": null
     }
   ],
-  "updated_at": "2026-08-10T09:51:44.227018+03:30"
+  "updated_at": "2026-08-10T12:40:10.825597+03:30"
 }
