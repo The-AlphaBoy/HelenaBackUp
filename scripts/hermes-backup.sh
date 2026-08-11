@@ -71,13 +71,50 @@ if [ -d "$REPO_DIR/.git" ]; then
   fi
 fi
 
-# ── 3. ارسال به کانال تلگرام ──
+# ── 3. ارسال به کانال تلگرام (تکه‌تکه برای فایل‌های بزرگ) ──
 BOT_TOKEN=$(grep TELEGRAM_BOT_TOKEN /data/.hermes/.env | cut -d= -f2 2>/dev/null)
+CHAT_ID="-1002658483716"
+TG_API="https://api.telegram.org/bot${BOT_TOKEN}"
+
+send_tg() { # $1=file  $2=caption → خروجی: ok یا پیام خطا
+  curl -s "${TG_API}/sendDocument" \
+    -F "chat_id=${CHAT_ID}" \
+    -F "document=@$1" \
+    -F "caption=$2" 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print('ok' if d.get('ok') else d.get('description','fail'))" 2>/dev/null
+}
+
 if [ -n "$BOT_TOKEN" ]; then
-  curl -s "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" \
-    -F "chat_id=-1002658483716" \
-    -F "document=@${BACKUP_FILE}" \
-    -F "caption=📦 بکاپ خودکار — $(date '+%Y-%m-%d %H:%M') | $SIZE" 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print('✅ کانال آپدیت شد' if d.get('ok') else '')" 2>/dev/null
+  FILE_SIZE=$(stat -c%s "$BACKUP_FILE" 2>/dev/null || echo 0)
+  MAX_CHUNK=$((18 * 1024 * 1024))  # 18MB — زیر سقف دانلود API (20MB) و ارسال (50MB)
+  NAME=$(basename "$BACKUP_FILE")
+  CAPTION="📦 بکاپ خودکار — $(date '+%Y-%m-%d %H:%M') | $SIZE"
+
+  if [ "$FILE_SIZE" -le "$MAX_CHUNK" ]; then
+    result=$(send_tg "$BACKUP_FILE" "$CAPTION")
+    if [ "$result" = "ok" ]; then
+      echo "✅ کانال آپدیت شد"
+    else
+      echo "⚠️ ارسال به کانال ناموفق: $result"
+    fi
+  else
+    # فایل بزرگ → تکه‌تکه (هر تکه < 20MB: هم ارسال می‌شه هم قابل دانلود از API)
+    CHUNK_DIR="/tmp/hermes-chunks-$$"
+    mkdir -p "$CHUNK_DIR"
+    split -b 18M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/part_"
+    TOTAL=$(ls "$CHUNK_DIR" | wc -l)
+    i=0; OK=0
+    for chunk in "$CHUNK_DIR"/part_*; do
+      i=$((i+1))
+      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat part_* > $NAME")
+      [ "$res" = "ok" ] && OK=$((OK+1))
+    done
+    rm -rf "$CHUNK_DIR"
+    if [ "$OK" -eq "$TOTAL" ]; then
+      echo "✅ کانال آپدیت شد (${TOTAL} تکه)"
+    else
+      echo "⚠️ ${OK}/${TOTAL} تکه ارسال شد"
+    fi
+  fi
 fi
 
 # ── 4. cleanup ──
