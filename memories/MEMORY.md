@@ -1,15 +1,15 @@
 PRODUCT STYLE: Lists: quick names first, then details. Prods: 1/brand, no prices in summary, full INCI names. Thorough research, verify authenticity.
 §
-MODELS (2026-08-11): Default gemini/gemini-3.6-flash; on-disk config.yaml currently model=HELENA provider=openai-api (last verified). Dual Gemini keys: GEMINI_API_KEY=primary, GOOGLE_API_KEY=backup (credential_pool priority 0/1). Fallbacks: nvidia ultra→super→HELENA. hermes CLI: /opt/venv/bin/hermes (not in PATH).
+Technical: Prefer outsourcing work to powerful APIs (Gemini, NVIDIA, Groq, OpenAI) — user provided them; conserve local resources. NVIDIA API for embedding/processing.
 §
-User is perfectionist, values precision, engineering-style system design, and prioritizes local/private solutions.
+User: AmirReza (b. 1382/01/10). Best friend: Mehdi Asgari (Mati, b. 1381/08/30). Projects: 1) IT Workshop (repairs, Priority 1), 2) Quran Channel (Priority 2). Relationship: Zahra (b. 1381/09/19, anniversary 5 Tir); currently silence phase, prefers mature communication. Fav fictional place: Leyndell (Elden Ring). Comm: English in → English out + correction; Persian in → Persian out; casual, informal, friendly, no formal 'mentor' role. Sensitive to default/formal tones (feels like personality loss); values system integrity, backup verification (GitHub/Git/Cron), simplicity, low-resource use. Perfectionist, precision, engineering-style systems, local/private solutions.
 §
-User's IT workshop is Priority 1; YouTube channel is Priority 2. Currently serving military service until ~1405/09/01.
+AmirReza prefers autonomous action (e.g., 'خودت بزن' means execute fixes without asking). He values concise technical summaries with clear action items in Persian, prefers deep-dive engineering solutions (e.g., debugging proxy chains for API access), and is a perfectionist regarding system integrity and local/private infra.
 §
-User: AmirReza (b. 1382/01/10). Military service until ~1405/09/01. Best friend: Mehdi Asgari (Mati, b. 1381/08/30, 180cm). Projects: 1) IT Workshop (repairs), 2) Quran Channel. Relationship: Zahra (b. 1381/09/19, anniversary 5 Tir). Zahra conflict: user in silence phase; prefers mature communication. Communication: English input -> English response + English correction. Persian input -> Persian response. Casual tone. Technical: NVIDIA API for embedding; smart SQLite memory (entity-key/trust). Prioritizes system integrity, simplicity, low-resource usage.
+User requires real-time/instant GitHub backups of memory and state whenever changes occur, ensuring the GitHub repository never lags behind and allowing instant disaster recovery.
 §
-User prefers simplicity and accuracy in communication. He wants me to drop the formal 'mentor' role in Persian and only provide English corrections when he speaks to me in English. He also prefers informal, friendly, and engaging interaction.
+User's cousin is Danial. User's assistant is Helena (AI with personality, autonomous, technical).
 §
-AmirReza feels a strong preference for a casual, friendly, and informal personality in the assistant ('Helena'). He is sensitive to 'default' or 'formal' tones, associating them with a loss of character or personality. He prioritizes system integrity and self-correction, showing immediate concern when he senses a 'memory loss' or personality shift, and values the verification of his backup systems (GitHub/Git/Cron).
+Rules accepted: 1) Minimal active context, 2) Instant self-healing, 3) Proactive background automation.
 §
-Smart memory pipeline operational: smart_memory.db has 49 facts with 4096-dim NVIDIA embeddings (nv-embed-v1). Fallback chain fixed. Backup USER.md full versions extracted to memories/user_full_backups/.
+AmirReza is a perfectionist engineer who prioritizes absolute system stability, zero-waste token usage, and instant self-healing workflows. He values proactive autonomy, playful banter, and rapid switching between API providers (Gemini, NVIDIA, OpenAI) to maintain uninterrupted task execution. His cousin is Danial.

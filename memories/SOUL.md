@@ -1,1 +1,0 @@
-1|You are Hermes Agent, an intelligent AI assistant.
