@@ -100,12 +100,14 @@ if [ -n "$BOT_TOKEN" ]; then
     # فایل بزرگ → تکه‌تکه ۱۵MB با نام استاندارد: name.part001.zip name.part002.zip ...
     CHUNK_DIR="/tmp/hermes-chunks-$$"
     mkdir -p "$CHUNK_DIR"
-    # split با پیشوند name.part و پسوند .zip اضافه می‌کنیم بعد
     BASE_NAME="${NAME%.zip}"
     split -b 15M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${BASE_NAME}.part"
-    # اضافه کردن .zip به نام هر تکه
+    # اضافه کردن .zip به نام هر تکه و تبدیل 000 به 001
+    i=1
     for chunk in "$CHUNK_DIR"/${BASE_NAME}.part*; do
-      mv "$chunk" "${chunk}.zip"
+      new_num=$(printf "%03d" $i)
+      mv "$chunk" "$CHUNK_DIR/${BASE_NAME}.part${new_num}.zip"
+      i=$((i+1))
     done
     TOTAL=$(ls "$CHUNK_DIR" | wc -l)
     i=0; OK=0
