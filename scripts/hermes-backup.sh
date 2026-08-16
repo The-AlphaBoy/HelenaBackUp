@@ -97,15 +97,15 @@ if [ -n "$BOT_TOKEN" ]; then
       echo "⚠️ ارسال به کانال ناموفق: $result"
     fi
   else
-    # فایل بزرگ → تکه‌تکه (هر تکه < 20MB: هم ارسال می‌شه هم قابل دانلود از API)
+    # فایل بزرگ → تکه‌تکه با پسوند .zip.part برای بازیابی آسان
     CHUNK_DIR="/tmp/hermes-chunks-$$"
     mkdir -p "$CHUNK_DIR"
-    split -b 18M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/part_"
+    split -b 18M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${NAME}.part_"
     TOTAL=$(ls "$CHUNK_DIR" | wc -l)
     i=0; OK=0
-    for chunk in "$CHUNK_DIR"/part_*; do
+    for chunk in "$CHUNK_DIR"/${NAME}.part_*; do
       i=$((i+1))
-      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat part_* > $NAME")
+      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat ${NAME}.part_* > ${NAME}")
       [ "$res" = "ok" ] && OK=$((OK+1))
     done
     rm -rf "$CHUNK_DIR"
