@@ -85,7 +85,7 @@ send_tg() { # $1=file  $2=caption → خروجی: ok یا پیام خطا
 
 if [ -n "$BOT_TOKEN" ]; then
   FILE_SIZE=$(stat -c%s "$BACKUP_FILE" 2>/dev/null || echo 0)
-  MAX_CHUNK=$((18 * 1024 * 1024))  # 18MB — زیر سقف دانلود API (20MB) و ارسال (50MB)
+  MAX_CHUNK=$((15 * 1024 * 1024))  # 15MB — زیر سقف تلگرام برای فایل‌های doc
   NAME=$(basename "$BACKUP_FILE")
   CAPTION="📦 بکاپ خودکار — $(date '+%Y-%m-%d %H:%M') | $SIZE"
 
@@ -97,15 +97,15 @@ if [ -n "$BOT_TOKEN" ]; then
       echo "⚠️ ارسال به کانال ناموفق: $result"
     fi
   else
-    # فایل بزرگ → تکه‌تکه با پسوند .zip.part برای بازیابی آسان
+    # فایل بزرگ → تکه‌تکه ۱۵MB با نام استاندارد .part001 .part002 ...
     CHUNK_DIR="/tmp/hermes-chunks-$$"
     mkdir -p "$CHUNK_DIR"
-    split -b 18M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${NAME}.part_"
+    split -b 15M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${NAME}.part"
     TOTAL=$(ls "$CHUNK_DIR" | wc -l)
     i=0; OK=0
-    for chunk in "$CHUNK_DIR"/${NAME}.part_*; do
+    for chunk in "$CHUNK_DIR"/${NAME}.part*; do
       i=$((i+1))
-      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat ${NAME}.part_* > ${NAME}")
+      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat ${NAME}.part* > ${NAME}")
       [ "$res" = "ok" ] && OK=$((OK+1))
     done
     rm -rf "$CHUNK_DIR"
