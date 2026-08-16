@@ -22,15 +22,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 490
+        "completed": 493
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:12:54.625121+00:00",
-      "next_run_at": "2026-08-13T12:43:54.801486+00:00",
-      "last_run_at": "2026-08-11T18:51:07.602893+00:00",
+      "next_run_at": "2026-08-16T21:30:12.257593+00:00",
+      "last_run_at": "2026-08-16T21:00:12.257593+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -68,17 +68,17 @@
       "schedule_display": "every 180m",
       "repeat": {
         "times": null,
-        "completed": 83
+        "completed": 84
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:12:54.883229+00:00",
-      "next_run_at": "2026-08-13T15:13:54.801486+00:00",
-      "last_run_at": "2026-08-11T18:16:14.555473+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-16T23:00:02.670530+00:00",
+      "last_run_at": "2026-08-16T20:00:02.670530+00:00",
+      "last_status": "error",
+      "last_error": "Script not found: /data/.hermes/scripts/hermes-backup.sh",
       "last_delivery_error": null,
       "deliver": "telegram:-1002658483716",
       "origin": {
@@ -114,17 +114,17 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 12
+        "completed": 13
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:44:36.493034+00:00",
-      "next_run_at": "2026-08-14T03:00:00+00:00",
-      "last_run_at": "2026-08-11T15:15:04.377865+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-17T03:00:00+00:00",
+      "last_run_at": "2026-08-16T20:00:02.714158+00:00",
+      "last_status": "error",
+      "last_error": "Script not found: /data/.hermes/scripts/daily-cleanup.sh",
       "last_delivery_error": null,
       "deliver": "telegram:-1002658483716",
       "origin": {
@@ -185,5 +185,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-13T12:13:54.801847+00:00"
+  "updated_at": "2026-08-16T21:00:12.257889+00:00"
 }

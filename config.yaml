@@ -1,18 +1,24 @@
 model:
+  default: nvidia/nemotron-3-ultra-550b-a55b
+  provider: nvidia
+  reasoning_effort: none
+  max_tokens: 1024
+  toolsets: ''
+providers:
+  groq:
+    api: https://api.groq.com/openai/v1
+    env: GROQ_API_KEY
+    npm: '@ai-sdk/groq'
+fallback_providers: '[{"provider": "nvidia", "model": "nvidia/nemotron-3-nano-30b-a3b"},
+  {"provider": "nvidia", "model": "nvidia/nemotron-3-ultra-550b-a55b"}, {"provider":
+  "gemini", "model": "gemini-3.6-flash"}]'
+terminal:
+  backend: local
   cwd: /data/workspace
-  timeout: 600
-fallback_providers:
-  - provider: nvidia
-    model: meta/llama-3.1-70b-instruct
-  - provider: openrouter
-    model: openrouter/auto
-  - provider: gemini
-    model: gemini-3.5-flash
-  - provider: openai-api
-    model: gpt-4o-mini
+  timeout: 180
 compression:
   enabled: true
-  threshold: 0.5
+  threshold: 0.3
 auxiliary:
   background_review:
     notification_mode: false
@@ -32,8 +38,10 @@ timezone: Asia/Tehran
 approvals:
   destructive_slash_confirm: false
 command_allowlist:
-  - script execution via -e/-c flag
   - execute_code
+  - overwrite system file via redirection
+  - script execution via -e/-c flag
+  - overwrite project env/config file
 onboarding:
   seen:
     busy_input_prompt: true
