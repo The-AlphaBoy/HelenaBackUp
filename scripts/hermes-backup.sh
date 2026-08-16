@@ -97,15 +97,21 @@ if [ -n "$BOT_TOKEN" ]; then
       echo "⚠️ ارسال به کانال ناموفق: $result"
     fi
   else
-    # فایل بزرگ → تکه‌تکه ۱۵MB با نام استاندارد .part001 .part002 ...
+    # فایل بزرگ → تکه‌تکه ۱۵MB با نام استاندارد: name.part001.zip name.part002.zip ...
     CHUNK_DIR="/tmp/hermes-chunks-$$"
     mkdir -p "$CHUNK_DIR"
-    split -b 15M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${NAME}.part"
+    # split با پیشوند name.part و پسوند .zip اضافه می‌کنیم بعد
+    BASE_NAME="${NAME%.zip}"
+    split -b 15M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${BASE_NAME}.part"
+    # اضافه کردن .zip به نام هر تکه
+    for chunk in "$CHUNK_DIR"/${BASE_NAME}.part*; do
+      mv "$chunk" "${chunk}.zip"
+    done
     TOTAL=$(ls "$CHUNK_DIR" | wc -l)
     i=0; OK=0
-    for chunk in "$CHUNK_DIR"/${NAME}.part*; do
+    for chunk in "$CHUNK_DIR"/${BASE_NAME}.part*.zip; do
       i=$((i+1))
-      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat ${NAME}.part* > ${NAME}")
+      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat ${BASE_NAME}.part*.zip > ${NAME}")
       [ "$res" = "ok" ] && OK=$((OK+1))
     done
     rm -rf "$CHUNK_DIR"
