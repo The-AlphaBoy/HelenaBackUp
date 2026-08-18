@@ -71,58 +71,13 @@ if [ -d "$REPO_DIR/.git" ]; then
   fi
 fi
 
-# ── 3. ارسال به کانال تلگرام (تکه‌تکه برای فایل‌های بزرگ) ──
+# ── 3. ارسال به کانال تلگرام ──
 BOT_TOKEN=$(grep TELEGRAM_BOT_TOKEN /data/.hermes/.env | cut -d= -f2 2>/dev/null)
-CHAT_ID="-1002658483716"
-TG_API="https://api.telegram.org/bot${BOT_TOKEN}"
-
-send_tg() { # $1=file  $2=caption → خروجی: ok یا پیام خطا
-  curl -s "${TG_API}/sendDocument" \
-    -F "chat_id=${CHAT_ID}" \
-    -F "document=@$1" \
-    -F "caption=$2" 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print('ok' if d.get('ok') else d.get('description','fail'))" 2>/dev/null
-}
-
 if [ -n "$BOT_TOKEN" ]; then
-  FILE_SIZE=$(stat -c%s "$BACKUP_FILE" 2>/dev/null || echo 0)
-  MAX_CHUNK=$((15 * 1024 * 1024))  # 15MB — زیر سقف تلگرام برای فایل‌های doc
-  NAME=$(basename "$BACKUP_FILE")
-  CAPTION="📦 بکاپ خودکار — $(date '+%Y-%m-%d %H:%M') | $SIZE"
-
-  if [ "$FILE_SIZE" -le "$MAX_CHUNK" ]; then
-    result=$(send_tg "$BACKUP_FILE" "$CAPTION")
-    if [ "$result" = "ok" ]; then
-      echo "✅ کانال آپدیت شد"
-    else
-      echo "⚠️ ارسال به کانال ناموفق: $result"
-    fi
-  else
-    # فایل بزرگ → تکه‌تکه ۱۵MB با نام استاندارد: name.part001.zip name.part002.zip ...
-    CHUNK_DIR="/tmp/hermes-chunks-$$"
-    mkdir -p "$CHUNK_DIR"
-    BASE_NAME="${NAME%.zip}"
-    split -b 15M -d -a 3 "$BACKUP_FILE" "$CHUNK_DIR/${BASE_NAME}.part"
-    # اضافه کردن .zip به نام هر تکه و تبدیل 000 به 001
-    i=1
-    for chunk in "$CHUNK_DIR"/${BASE_NAME}.part*; do
-      new_num=$(printf "%03d" $i)
-      mv "$chunk" "$CHUNK_DIR/${BASE_NAME}.part${new_num}.zip"
-      i=$((i+1))
-    done
-    TOTAL=$(ls "$CHUNK_DIR" | wc -l)
-    i=0; OK=0
-    for chunk in "$CHUNK_DIR"/${BASE_NAME}.part*.zip; do
-      i=$((i+1))
-      res=$(send_tg "$chunk" "🧩 $CAPTION — بخش $i/$TOTAL | ادغام: cat ${BASE_NAME}.part*.zip > ${NAME}")
-      [ "$res" = "ok" ] && OK=$((OK+1))
-    done
-    rm -rf "$CHUNK_DIR"
-    if [ "$OK" -eq "$TOTAL" ]; then
-      echo "✅ کانال آپدیت شد (${TOTAL} تکه)"
-    else
-      echo "⚠️ ${OK}/${TOTAL} تکه ارسال شد"
-    fi
-  fi
+  curl -s "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" \
+    -F "chat_id=-1002658483716" \
+    -F "document=@${BACKUP_FILE}" \
+    -F "caption=📦 بکاپ خودکار — $(date '+%Y-%m-%d %H:%M') | $SIZE" 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print('✅ کانال آپدیت شد' if d.get('ok') else '')" 2>/dev/null
 fi
 
 # ── 4. cleanup ──
