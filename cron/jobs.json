@@ -22,15 +22,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 619
+        "completed": 625
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:12:54.625121+00:00",
-      "next_run_at": "2026-08-20T17:11:43.705171+00:00",
-      "last_run_at": "2026-08-20T16:41:43.705171+00:00",
+      "next_run_at": "2026-08-20T20:12:25.107554+00:00",
+      "last_run_at": "2026-08-20T19:42:25.107554+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -69,15 +69,15 @@
       "schedule_display": "every 180m",
       "repeat": {
         "times": null,
-        "completed": 104
+        "completed": 105
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-30T23:12:54.883229+00:00",
-      "next_run_at": "2026-08-20T20:00:47.228184+00:00",
-      "last_run_at": "2026-08-20T14:00:13.785761+00:00",
+      "next_run_at": "2026-08-20T23:01:28.787528+00:00",
+      "last_run_at": "2026-08-20T17:00:55.469092+00:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -92,8 +92,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-20T17:00:47.239912+00:00",
-        "by": "35166d612632:2:b892329250984deabd6cb4dfbfe7206c"
+        "at": "2026-08-20T20:01:28.797402+00:00",
+        "by": "35166d612632:2:7369b6539ce64c45b46693f6639a9d43"
       },
       "failure_streak": 0
     },
@@ -215,17 +215,17 @@
       "schedule_display": "0 18 * * *",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 4
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-10T10:25:34.892138+03:30",
-      "next_run_at": "2026-08-20T18:00:00+00:00",
-      "last_run_at": "2026-08-19T18:02:48.398506+00:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-21T18:00:00+00:00",
+      "last_run_at": "2026-08-20T18:00:02.517604+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 403: {\"status\":403,\"title\":\"Forbidden\",\"detail\":\"Authorization failed\"}",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -238,8 +238,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     }
   ],
-  "updated_at": "2026-08-20T17:00:47.240077+00:00"
+  "updated_at": "2026-08-20T20:01:28.797746+00:00"
 }
